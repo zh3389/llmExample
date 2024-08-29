@@ -1,0 +1,6 @@
+-i https://pypi.tuna.tsinghua.edu.cn/simple
+qwen-agent
+qwen-agent[gui]
+fastapi
+uvicorn
+pydantic
