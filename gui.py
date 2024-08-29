@@ -48,10 +48,8 @@ def app_gui():
           chatbot_config=chatbot_config).run(messages=[{'role': 'assistant',
                                                         'content': [{'text': '试试看 @基础大模型 来问我~'}]
                                                         }],
-                                             enable_mention=True,
-          host="0.0.0.0", port=7860)
+                                             enable_mention=True)
 
 
 if __name__ == '__main__':
-    from qwen_agent.gui import WebUI
     app_gui()
