@@ -48,7 +48,8 @@ def app_gui():
           chatbot_config=chatbot_config).run(messages=[{'role': 'assistant',
                                                         'content': [{'text': '试试看 @基础大模型 来问我~'}]
                                                         }],
-                                             enable_mention=True)
+                                             enable_mention=True,
+                                             server_name='0.0.0.0')
 
 
 if __name__ == '__main__':
