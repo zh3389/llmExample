@@ -34,12 +34,6 @@ python app.py
 # http://127.0.0.1:8000/docs
 ```
 
-#### 模型输入输出
-
-输入数据格式参考:  [input_schema](./assets/input_schema.json)
-
-输出数据格式参考:  [output_schema](./assets/output_schema.json)
-
 
 #### Docker 打包
 
@@ -47,20 +41,20 @@ python app.py
 # 打包
 docker build -t qwen2-7b-instruct:v1 -f Dockerfile .
 # 运行
-# docker run -p 20000:20000 qwen2-7b-instruct:v1
-docker run -v $(pwd)/embeddingg:/app/embedding -p 20001:20001 -d riskdata:latest
+# docker run -p 8000:8000 qwen2-7b-instruct:v1
+docker run -v $(pwd)/embeddingg:/app/embedding -p 8000:8000 -d qwen2-7b-instruct:v1
 # 访问接口
-# http://127.0.0.1:20001/docs
+# http://127.0.0.1:8000/docs
 ```
 
 #### 上传docker镜像到服务器
 
 ```
 # 如需保存到本地 并 上传至服务器 加载 运行
-docker save -o ABC.tar ABC
-scp ABC.tar siweicn@192.168.10.202:/home/siweicn/
+docker save -o qwen2-7b-instruct.tar qwen2-7b-instruct:v1
+scp qwen2-7b-instruct.tar root@192.168.10.202:/home/
 # 登录到服务器 运行以下命令
-docker load -i ABC.tar
-docker run -v $(pwd)/embeddingg:/app/embedding -p 20001:20001 -d ABC:latest
-# 访问接口文档: http://localhost:20001/docs
+docker load -i qwen2-7b-instruct.tar
+docker run -v $(pwd)/embeddingg:/app/embedding -p 8000:8000 -d qwen2-7b-instruct:v1
+# 访问接口文档: http://localhost:8000/docs
 ```
