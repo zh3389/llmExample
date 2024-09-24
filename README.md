@@ -41,13 +41,6 @@ python app.py
 输出数据格式参考:  [output_schema](./assets/output_schema.json)
 
 
-#### 接口演示
-
-![image](./assets/input_example.png)
-
-![image](./assets/output_example.png)
-
-
 #### Docker 打包
 
 ```
